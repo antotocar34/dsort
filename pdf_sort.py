@@ -9,9 +9,9 @@ from single_file_sort import single_sort
 def listdir(path):
     """ path -> list(filenames) """
     ls_output = os.listdir(path)
-    exts = ('.pdf', '.doc', '.docx')
+    exts = ('.PDF','.pdf', '.doc', '.docx')
     ls_output = [f for f in ls_output if f.endswith(exts)]
-    converted_docs = [convert_to_pdf(f) for f in ls_output if '.pdf' not in f]
+    converted_docs = [convert_to_pdf(f) for f in ls_output if any('.pdf','.PDF') not in f]
     ls_output.extend(converted_docs)
     # Remove any doc or docx files.
     docs = ('.docx', '.doc')
